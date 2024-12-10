@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 import com.keyin.Aircraft.AircraftRepository;
 
-
 @Service
 public class PassengerService {
 
@@ -43,8 +42,6 @@ public class PassengerService {
         }
     }
 
-
-
     public void deletePassenger(Long id) {
         passengerRepository.deleteById(id);
     }
@@ -63,7 +60,10 @@ public class PassengerService {
         Optional<Passenger> passengerOptional = passengerRepository.findById(id);
         passengerOptional.ifPresent(value -> value.getAircraft());
         return passengerOptional.get().getAircraft();
-
     }
 
+    // Renamed search method for passengers
+    public List<Passenger> searchPassengersByName(String name) {
+        return passengerRepository.findByNameContainingIgnoreCase(name);
+    }
 }

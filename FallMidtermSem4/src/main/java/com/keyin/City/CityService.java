@@ -15,7 +15,6 @@ public class CityService {
     @Autowired
     private CityRepository cityRepository;
 
-
     @Autowired
     private AirportRepository airportRepository;
 
@@ -51,7 +50,6 @@ public class CityService {
         return cityRepository.save(city);
     }
 
-
     public void deleteCity(Long id) {
         cityRepository.deleteById(id);
     }
@@ -60,5 +58,10 @@ public class CityService {
         List<City> cities = getAllCities();
         return cities.stream()
                 .collect(Collectors.toMap(city -> city, City::getAirports));
+    }
+
+    // Added search method to find cities by name
+    public List<City> searchCitiesByName(String name) {
+        return cityRepository.findByNameContainingIgnoreCase(name);  // Calls repository to search by name
     }
 }

@@ -38,7 +38,6 @@ public class PassengerController {
         return passengerService.createPassenger(passenger);
     }
 
-
     // Endpoint to get aircraft by passenger
     @GetMapping("/passengers/{passengerId}/aircraft")
     public List<Aircraft> getAircraftByPassenger(@PathVariable Integer passengerId) {
@@ -55,7 +54,6 @@ public class PassengerController {
         return passengerService.getPassengerById(id);
     }
 
-
     @PutMapping("/passenger/{id}")
     public Passenger updatePassenger(@PathVariable Long id, @RequestBody Passenger updatedPassenger) {
         return passengerService.updatePassenger(id, updatedPassenger);
@@ -65,18 +63,20 @@ public class PassengerController {
     public void deletePassenger(@PathVariable Long id) {
         passengerService.deletePassenger(id);
     }
+
     @PutMapping("/{passengerId}/aircraft/{aircraftId}")
     public Passenger addAircraftToPassenger(@PathVariable Long passengerId, @PathVariable Long aircraftId) {
         return passengerService.addAircraftToPassenger(passengerId, aircraftId);
     }
 
     @GetMapping("/getAircraftForPassenger")
-    public List<Aircraft> getAircraftForPassenger(@PathVariable Long id){
+    public List<Aircraft> getAircraftForPassenger(@PathVariable Long id) {
         return passengerService.getAircraftForPassenger(id);
     }
 
-
-
-
-
+    // Added search method for passengers
+    @GetMapping("/passengers/search")
+    public List<Passenger> searchPassengers(@RequestParam String q) {
+        return passengerService.searchPassengersByName(q); // Calls the service to search by name
+    }
 }
