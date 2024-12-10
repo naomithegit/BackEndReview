@@ -74,9 +74,9 @@ public class PassengerController {
         return passengerService.getAircraftForPassenger(id);
     }
 
-    // Added search method for passengers
+
     @GetMapping("/passengers/search")
     public List<Passenger> searchPassengers(@RequestParam String q) {
-        return passengerService.searchPassengersByName(q); // Calls the service to search by name
+        return passengerService.searchPassengersByName(q);
     }
 }

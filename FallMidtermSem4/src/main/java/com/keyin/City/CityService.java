@@ -60,8 +60,8 @@ public class CityService {
                 .collect(Collectors.toMap(city -> city, City::getAirports));
     }
 
-    // Added search method to find cities by name
+
     public List<City> searchCitiesByName(String name) {
-        return cityRepository.findByNameContainingIgnoreCase(name);  // Calls repository to search by name
+        return cityRepository.findByNameContainingIgnoreCase(name);
     }
 }

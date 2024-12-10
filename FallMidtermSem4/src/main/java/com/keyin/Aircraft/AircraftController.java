@@ -48,7 +48,7 @@ public class AircraftController {
         aircraftService.deleteAircraft(id);
     }
 
-    // Added Search Endpoint for Aircraft based on name
+
     @GetMapping("/aircraft/search")
     public List<Aircraft> searchAircraft(@RequestParam String q) {
         return aircraftService.searchAircraftByName(q); // This searches aircraft by name

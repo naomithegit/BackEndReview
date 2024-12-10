@@ -46,9 +46,9 @@ public class AirportController {
         airportService.deleteAirport(id);
     }
 
-    // Added search method to search airports by name
+
     @GetMapping("/airports/search")
     public List<Airport> searchAirports(@RequestParam String q) {
-        return airportService.searchAirportsByName(q);  // Calls the service method to search by name
+        return airportService.searchAirportsByName(q);
     }
 }

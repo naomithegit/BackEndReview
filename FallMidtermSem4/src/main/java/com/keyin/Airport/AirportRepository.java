@@ -24,6 +24,6 @@ public interface AirportRepository extends CrudRepository<Airport, Long> {
     @Query("SELECT a FROM Aircraft a JOIN a.passengers p WHERE p.id = :passengerId")
     List<Aircraft> findByPassengerId(@Param("passengerId") long passengerId);
 
-    // Added search method for airport name
+
     List<Airport> findByNameContainingIgnoreCase(String name);
 }

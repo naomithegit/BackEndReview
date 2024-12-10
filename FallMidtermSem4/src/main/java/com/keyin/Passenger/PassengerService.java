@@ -62,7 +62,7 @@ public class PassengerService {
         return passengerOptional.get().getAircraft();
     }
 
-    // Renamed search method for passengers
+
     public List<Passenger> searchPassengersByName(String name) {
         return passengerRepository.findByNameContainingIgnoreCase(name);
     }
