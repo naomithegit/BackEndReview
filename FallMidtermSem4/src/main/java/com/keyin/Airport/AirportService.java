@@ -36,4 +36,9 @@ public class AirportService {
     public void deleteAirport(Long id) {
         airportRepository.deleteById(id);
     }
+
+    // Added search method to find airports by name
+    public List<Airport> searchAirportsByName(String name) {
+        return airportRepository.findByNameContainingIgnoreCase(name); // Calls repository to search by name
+    }
 }

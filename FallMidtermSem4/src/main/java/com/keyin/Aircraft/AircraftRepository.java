@@ -14,10 +14,11 @@ public interface AircraftRepository extends CrudRepository<Aircraft, Long> {
     @Query("SELECT DISTINCT a FROM Aircraft a JOIN a.passengers p WHERE p.id = :passengerId")
     List<Aircraft> findAircraftByPassengerId(@Param("passengerId") long passengerId);
 
-
     @Query("SELECT a.airports FROM Aircraft a WHERE a.id = :aircraftId")
     List<Airport> findAirportsByAircraftId(@Param("aircraftId") Long aircraftId);
 
-
     List<Aircraft> findByPassengerId(Integer passengerId);
+
+    // Added search method to find aircraft by name
+    List<Aircraft> findByNameContainingIgnoreCase(String name);
 }

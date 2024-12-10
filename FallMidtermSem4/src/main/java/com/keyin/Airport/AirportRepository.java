@@ -10,20 +10,20 @@ import java.util.List;
 
 @Repository
 public interface AirportRepository extends CrudRepository<Airport, Long> {
+
     List<Airport> findByCityId(Integer cityId);
 
     List<Airport> findByAircraftId(Integer aircraftId);
 
-
     @Query("SELECT a.airports FROM Aircraft a WHERE a.id = :aircraftId")
     List<Airport> findAirportsByAircraftId(@Param("aircraftId") Integer aircraftId);
-
-
 
     @Query("SELECT a FROM Airport a WHERE a.cityId = :cityId")
     List<Airport> findAirportsByCityId(@Param("cityId") Integer cityId);
 
-
     @Query("SELECT a FROM Aircraft a JOIN a.passengers p WHERE p.id = :passengerId")
     List<Aircraft> findByPassengerId(@Param("passengerId") long passengerId);
+
+    // Added search method for airport name
+    List<Airport> findByNameContainingIgnoreCase(String name);
 }

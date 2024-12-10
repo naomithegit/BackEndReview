@@ -22,7 +22,6 @@ public class AircraftService {
 
     public Aircraft findAircraftById(long id) {
         Optional<Aircraft> aircraftOptional = aircraftRepository.findById(id);
-
         return aircraftOptional.orElse(null);
     }
 
@@ -46,5 +45,8 @@ public class AircraftService {
         aircraftRepository.deleteById(id);
     }
 
-
+    // Added search method to find aircraft by name
+    public List<Aircraft> searchAircraftByName(String name) {
+        return aircraftRepository.findByNameContainingIgnoreCase(name); // Uses the repository to search by name
+    }
 }

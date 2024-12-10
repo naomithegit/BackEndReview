@@ -49,4 +49,9 @@ public class CityController {
         return cityService.addAirportToCity(cityId, airportId);
     }
 
+    // Added search method to search cities by name
+    @GetMapping("/cities/search")
+    public List<City> searchCities(@RequestParam String q) {
+        return cityService.searchCitiesByName(q);  // Calls the service method to search by name
+    }
 }
