@@ -45,8 +45,8 @@ public class AircraftService {
         aircraftRepository.deleteById(id);
     }
 
-    // Added search method to find aircraft by name
+
     public List<Aircraft> searchAircraftByName(String name) {
-        return aircraftRepository.findByNameContainingIgnoreCase(name); // Uses the repository to search by name
+        return aircraftRepository.findByairLineNameContainingIgnoreCase(name);
     }
 }

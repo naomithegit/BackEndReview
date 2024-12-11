@@ -18,7 +18,7 @@ public interface PassengerRepository extends CrudRepository<Passenger, Long> {
     @Query("SELECT DISTINCT a FROM Airport a JOIN a.aircraft ac JOIN ac.passengers p")
     List<Airport> findAirportsUsedByPassengers();
 
-    // Updated to the simpler method name
-    List<Passenger> findByNameContainingIgnoreCase(String name);
+
+    List<Passenger> findByfirstNameContainingIgnoreCase(String name);
 
 }
