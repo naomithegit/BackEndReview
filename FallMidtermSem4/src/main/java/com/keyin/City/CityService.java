@@ -62,6 +62,6 @@ public class CityService {
 
 
     public List<City> searchCitiesByName(String name) {
-        return cityRepository.findByNameContainingIgnoreCase(name);
+        return cityRepository.findBynameContainingIgnoreCase(name);
     }
 }

@@ -64,6 +64,6 @@ public class PassengerService {
 
 
     public List<Passenger> searchPassengersByName(String name) {
-        return passengerRepository.findByNameContainingIgnoreCase(name);
+        return passengerRepository.findByfirstNameContainingIgnoreCase(name);
     }
 }

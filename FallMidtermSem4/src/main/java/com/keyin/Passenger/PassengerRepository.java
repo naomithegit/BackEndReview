@@ -19,6 +19,6 @@ public interface PassengerRepository extends CrudRepository<Passenger, Long> {
     List<Airport> findAirportsUsedByPassengers();
 
 
-    List<Passenger> findByNameContainingIgnoreCase(String name);
+    List<Passenger> findByfirstNameContainingIgnoreCase(String name);
 
 }

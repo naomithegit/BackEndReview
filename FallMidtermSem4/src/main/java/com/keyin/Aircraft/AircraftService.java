@@ -47,6 +47,6 @@ public class AircraftService {
 
 
     public List<Aircraft> searchAircraftByName(String name) {
-        return aircraftRepository.findByNameContainingIgnoreCase(name);
+        return aircraftRepository.findByairLineNameContainingIgnoreCase(name);
     }
 }

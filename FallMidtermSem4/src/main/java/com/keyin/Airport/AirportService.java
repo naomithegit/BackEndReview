@@ -39,6 +39,6 @@ public class AirportService {
 
 
     public List<Airport> searchAirportsByName(String name) {
-        return airportRepository.findByNameContainingIgnoreCase(name);
+        return airportRepository.findBynameContainingIgnoreCase(name);
     }
 }

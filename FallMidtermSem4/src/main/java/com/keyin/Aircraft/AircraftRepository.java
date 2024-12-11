@@ -20,5 +20,5 @@ public interface AircraftRepository extends CrudRepository<Aircraft, Long> {
     List<Aircraft> findByPassengerId(Integer passengerId);
 
 
-    List<Aircraft> findByNameContainingIgnoreCase(String name);
+    List<Aircraft> findByairLineNameContainingIgnoreCase(String airLineName);
 }
